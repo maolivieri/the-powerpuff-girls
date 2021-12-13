@@ -1,1 +1,1 @@
-# the-powerpuff-girls
+# The Powerpuff Girls 
