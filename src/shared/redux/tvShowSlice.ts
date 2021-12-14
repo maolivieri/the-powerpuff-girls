@@ -54,6 +54,7 @@ export const tvShowSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { loadTVShowDetails, loadTVShowEpisodes } = tvShowSlice.actions;
+export const { loadTVShowDetails, loadTVShowEpisodes, loadTVShowSeasons } =
+  tvShowSlice.actions;
 
 export default tvShowSlice.reducer;
