@@ -9,6 +9,7 @@ import {
   loadTVShowDetails,
   loadTVShowEpisodes,
   loadTVShowSeasons,
+  loadTVShowCasts,
 } from "../../shared/redux/tvShowSlice";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
@@ -20,13 +21,16 @@ import { Network } from "../../components/TVShow/Network";
 import { Summary } from "../../components/TVShow/Summary";
 import { Seasons } from "../../components/TVShow/Seasons";
 import { EpisodeCard } from "../../components/EpisodeCard";
+import ShowType from "../../components/TVShow/ShowType";
+import Genres from "../../components/TVShow/Genres";
+import Casts from "../../components/TVShow/Casts";
 
 export const TVShow: FC = () => {
   const [loading, setLoading] = useState(true);
   const [selectedSeason, setSelectedSeason] = useState(1);
   const { showId } = useParams();
   const dispatch = useDispatch<AppDispatch>();
-  const { details, episodes, seasons } = useSelector(
+  const { details, episodes, seasons, casts } = useSelector(
     (state: RootState) => state.tvShow
   );
 
@@ -51,6 +55,8 @@ export const TVShow: FC = () => {
           `shows/${showId}/episodes`
         );
         dispatch(loadTVShowEpisodes(TVShowEpisodes));
+        const { data: TVShowCast } = await api.get(`shows/${showId}/cast`);
+        dispatch(loadTVShowCasts(TVShowCast));
       } catch (error) {
         console.log(error);
       } finally {
@@ -90,6 +96,7 @@ export const TVShow: FC = () => {
             <Summary summary={details.summary} />
             <Seasons
               seasons={seasons}
+              selectedSeason={selectedSeason}
               handleSeasonSelection={handleSeasonSelection}
             />
             <div
@@ -113,7 +120,12 @@ export const TVShow: FC = () => {
                   </div>
                 ))}
             </div>
-            <Footer></Footer>
+            <Footer>
+              <ShowType value={details.type} />
+              <Genres genres={details.genres} />
+              <Casts title='Characters' values={casts} type='character' />
+              <Casts title='Cast' values={casts} type='person' />
+            </Footer>
           </Content>
         </Container>
       )}

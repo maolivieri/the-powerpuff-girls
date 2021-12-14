@@ -43,6 +43,16 @@ export const tvShowSlice = createSlice({
         number: 0,
       },
     ],
+    casts: [
+      {
+        person: {
+          name: "",
+        },
+        character: {
+          name: "",
+        },
+      },
+    ],
   },
   reducers: {
     loadTVShowDetails: (state, { payload }) => {
@@ -54,11 +64,18 @@ export const tvShowSlice = createSlice({
     loadTVShowSeasons: (state, { payload }) => {
       state.seasons = payload;
     },
+    loadTVShowCasts: (state, { payload }) => {
+      state.casts = payload;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { loadTVShowDetails, loadTVShowEpisodes, loadTVShowSeasons } =
-  tvShowSlice.actions;
+export const {
+  loadTVShowDetails,
+  loadTVShowEpisodes,
+  loadTVShowSeasons,
+  loadTVShowCasts,
+} = tvShowSlice.actions;
 
 export default tvShowSlice.reducer;

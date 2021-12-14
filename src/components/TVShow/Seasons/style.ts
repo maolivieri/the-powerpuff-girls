@@ -1,10 +1,14 @@
 import styled from "styled-components";
 
+interface SeasonProps {
+  active: boolean;
+}
+
 export const Container = styled.div`
   display: flex;
 `;
 
-export const Season = styled.div`
+export const Season = styled.div<SeasonProps>`
   display: flex;
   align-items: center;
   justify-content: center;
