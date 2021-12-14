@@ -18,6 +18,10 @@ export const tvShowSlice = createSlice({
       },
       summary: "",
       updated: "",
+      schedule: {
+        time: "",
+        days: [],
+      },
     },
     episodes: [
       {
@@ -36,7 +40,7 @@ export const tvShowSlice = createSlice({
     ],
     seasons: [
       {
-        number: null,
+        number: 0,
       },
     ],
   },

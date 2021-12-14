@@ -2,8 +2,6 @@ import { FC, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { Loading } from "../../components/Loading";
-
 import { api } from "../../shared/api";
 import { AppDispatch, RootState } from "../../shared/redux/store";
 import {
@@ -11,6 +9,13 @@ import {
   loadTVShowEpisodes,
   loadTVShowSeasons,
 } from "../../shared/redux/tvShowSlice";
+
+import { Loading } from "../../components/Loading";
+import { Container, Content, ImageWrapper, Title } from "./style";
+import { Schedule } from "../../components/Loading/TVShow/Schedule";
+import { Network } from "../../components/Loading/TVShow/Network";
+import { Summary } from "../../components/Loading/TVShow/Summary";
+import { Seasons } from "../../components/Loading/TVShow/Seasons";
 
 export const TVShow: FC = () => {
   const [loading, setLoading] = useState(true);
@@ -49,10 +54,24 @@ export const TVShow: FC = () => {
       {loading ? (
         <Loading />
       ) : (
-        <div>
-          <h1>TVShow Page</h1>
-          <h1>{details?.name}</h1>
-        </div>
+        <Container>
+          <ImageWrapper>
+            <img
+              style={{ height: "100%" }}
+              src={details.image.original}
+              alt='show banner'
+            />
+          </ImageWrapper>
+          <Content>
+            <Title>{details.name}</Title>
+            <div style={{ display: "flex" }}>
+              <Network name={details.network?.name} />
+              <Schedule schedule={details.schedule} />
+            </div>
+            <Summary summary={details.summary} />
+            <Seasons seasons={seasons} />
+          </Content>
+        </Container>
       )}
     </>
   );
