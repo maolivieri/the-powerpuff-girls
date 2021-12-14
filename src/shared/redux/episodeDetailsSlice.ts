@@ -7,8 +7,8 @@ export const episodeDetailsSlice = createSlice({
       id: 0,
       name: "",
       summary: "",
-      season: null,
-      number: null,
+      season: 0,
+      number: 0,
       airdate: "",
       airtime: "",
       runtime: 0,
@@ -17,7 +17,7 @@ export const episodeDetailsSlice = createSlice({
         medium: "",
       },
     },
-    episodeId: null,
+    episodeId: 0,
   },
   reducers: {
     loadEpisodeDetails: (state, { payload }) => {
