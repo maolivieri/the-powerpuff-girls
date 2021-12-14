@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import "./app.css";
 
 import { TVShow } from "./pages/TVShow";
 import { EpisodeDetails } from "./pages/EpisodeDetails";
