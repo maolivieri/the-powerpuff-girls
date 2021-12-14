@@ -2,6 +2,8 @@ import { FC, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
+import { Loading } from "../../components/Loading";
+
 import { api } from "../../shared/api";
 import { AppDispatch, RootState } from "../../shared/redux/store";
 import {
@@ -34,29 +36,22 @@ export const TVShow: FC = () => {
       } catch (error) {
         console.log(error);
       } finally {
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
       }
     };
     loadTVShow();
-  }, [showId]);
+  }, [showId, dispatch]);
 
   return (
     <>
       {loading ? (
-        <div>
-          <h1>LOADING....</h1>
-        </div>
+        <Loading />
       ) : (
         <div>
           <h1>TVShow Page</h1>
           <h1>{details?.name}</h1>
-          {episodes.map((episode) => (
-            <h1>{episode.number}</h1>
-          ))}
-
-          {seasons.map((season) => (
-            <h1>{season.number}</h1>
-          ))}
         </div>
       )}
     </>

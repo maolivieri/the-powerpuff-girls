@@ -9,7 +9,10 @@ export function App() {
     <Routes>
       <Route path='/' element={<TVShow />} />
       <Route path='/show/:showId' element={<TVShow />} />
-      <Route path='/episode/:episodeId' element={<EpisodeDetails />} />
+      <Route
+        path='/show/:showId/episode/:episodeId'
+        element={<EpisodeDetails />}
+      />
       <Route path='*' element={<Page404 />} />
     </Routes>
   );
