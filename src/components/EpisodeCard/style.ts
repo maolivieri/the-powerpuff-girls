@@ -6,6 +6,7 @@ interface ContainerProps {
 
 export const Background = styled.div<ContainerProps>`
   /* position: relative; */
+  position: relative;
   width: calc(6rem * 1.8);
   height: 6rem;
   background-image: ${({ image }) => `url(${image})`};
@@ -27,6 +28,7 @@ export const Container = styled.div`
   justify-content: space-between;
   padding: 0.9rem 0.8rem;
   color: #ffffff;
+  z-index: 10;
 `;
 
 export const Number = styled.p``;
@@ -40,3 +42,59 @@ export const Name = styled.p`
 `;
 
 export const Duration = styled.p``;
+
+export const Hover = styled.div`
+  opacity: 0;
+  position: absolute;
+  /* background: red; */
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+export const Blur = styled.div`
+  /* background: rgba(0, 0, 43, 0.3); */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 101;
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
+  backdrop-filter: blur(3px);
+  transition: 0.2s;
+`;
+
+export const SeeMoreButton = styled.div`
+  position: relative;
+  padding: 0.4rem 0.7rem;
+  border-radius: 25px;
+  overflow: hidden;
+  background: rgba(15, 15, 15, 0.5);
+  /* -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
+  backdrop-filter: blur(3px); */
+  z-index: 103;
+  transition: 0.2s;
+`;
+
+export const SeeMore = styled.p`
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  z-index: 105;
+  transition: 0.2s;
+`;
