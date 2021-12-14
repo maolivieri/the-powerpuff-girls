@@ -25,6 +25,7 @@ export const tvShowSlice = createSlice({
     },
     episodes: [
       {
+        id: 0,
         name: "",
         summary: "",
         season: null,

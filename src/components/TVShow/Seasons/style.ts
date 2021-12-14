@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 interface SeasonProps {
   active: boolean;
@@ -13,8 +13,17 @@ export const Season = styled.div<SeasonProps>`
   align-items: center;
   justify-content: center;
   margin-right: 2rem;
-  background: #fafe;
   padding: 0.4rem 0.7rem;
   border-radius: 20px;
   font-weight: 700;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  ${({ active }) =>
+    active &&
+    css`
+      background: rgba(12, 12, 12, 0.2);
+    `}
 `;

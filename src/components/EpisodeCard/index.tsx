@@ -12,21 +12,25 @@ import {
 } from "./style";
 
 interface EpisodeCardProps {
+  id: number;
   number: number | string | null;
   name: string;
   duration: string | number | null;
   image: string;
+  handleEpisodeClick: (episodeId: number) => void;
 }
 
 const EpisodeCard: FC<EpisodeCardProps> = ({
+  id,
   number,
   name,
   duration,
   image,
+  handleEpisodeClick,
 }) => {
   return (
     <Background image={image}>
-      <Hover>
+      <Hover onClick={() => handleEpisodeClick(id)}>
         <Blur />
         <SeeMoreButton>
           <SeeMore>See More</SeeMore>

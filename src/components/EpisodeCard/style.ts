@@ -54,9 +54,10 @@ export const Hover = styled.div`
   align-items: center;
   justify-content: center;
   transition: 0.2s;
-
+  border-radius: 20px;
   &:hover {
     opacity: 1;
+    cursor: pointer;
   }
 `;
 

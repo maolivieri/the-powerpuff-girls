@@ -1,10 +1,11 @@
 import { FC, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { usePalette } from "react-palette";
 
 import { api } from "../../shared/api";
 import { AppDispatch, RootState } from "../../shared/redux/store";
+import { setEpisodeId } from "../../shared/redux/episodeDetailsSlice";
 import {
   loadTVShowDetails,
   loadTVShowEpisodes,
@@ -29,6 +30,7 @@ export const TVShow: FC = () => {
   const [loading, setLoading] = useState(true);
   const [selectedSeason, setSelectedSeason] = useState(1);
   const { showId } = useParams();
+  const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
   const { details, episodes, seasons, casts } = useSelector(
     (state: RootState) => state.tvShow
@@ -58,7 +60,7 @@ export const TVShow: FC = () => {
         const { data: TVShowCast } = await api.get(`shows/${showId}/cast`);
         dispatch(loadTVShowCasts(TVShowCast));
       } catch (error) {
-        console.log(error);
+        navigate("/");
       } finally {
         setTimeout(() => {
           setLoading(false);
@@ -66,12 +68,21 @@ export const TVShow: FC = () => {
       }
     };
     loadTVShow();
-  }, [showId, dispatch]);
+  }, [showId, dispatch, navigate]);
 
   const { data } = usePalette(details.image.original);
 
   const handleSeasonSelection = (season: number) => {
     setSelectedSeason(season);
+  };
+
+  const handleEpisodeClick = (episodeId: number) => {
+    try {
+      dispatch(setEpisodeId(episodeId));
+    } catch (error) {
+    } finally {
+      navigate(`episode`);
+    }
   };
 
   return (
@@ -112,10 +123,12 @@ export const TVShow: FC = () => {
                     style={{ minWidth: "calc(6rem * 1.8)" }}
                   >
                     <EpisodeCard
+                      id={episode.id}
                       duration={episode.runtime}
                       name={episode.name}
                       number={episode.number}
                       image={episode.image?.medium}
+                      handleEpisodeClick={handleEpisodeClick}
                     />
                   </div>
                 ))}
