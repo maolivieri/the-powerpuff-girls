@@ -1,4 +1,4 @@
-import { FC, FormEvent, useState } from "react";
+import { FC, useState } from "react";
 import { Container, Select, Option } from "./style";
 
 interface SeasonsSelectorProps {
