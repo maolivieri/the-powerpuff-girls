@@ -15,6 +15,7 @@ import EpisodePaper from "../../components/Episode/EpisodePaper";
 import { Container, Body } from "./style";
 import SeasonsSelector from "../../components/Episode/SeasonsSelector";
 import ReturnButton from "../../components/ReturnButton";
+import EpisodeDetailsSkeleton from "./Skeleton";
 
 export const EpisodeDetails: FC = () => {
   const { episodes, seasons } = useSelector((state: RootState) => state.tvShow);
@@ -39,7 +40,7 @@ export const EpisodeDetails: FC = () => {
       } finally {
         setTimeout(() => {
           setLoading(false);
-        }, 10);
+        }, 200);
       }
     };
     loadEpisode();
@@ -61,7 +62,7 @@ export const EpisodeDetails: FC = () => {
       } finally {
         setTimeout(() => {
           setLoading(false);
-        }, 10);
+        }, 200);
       }
     };
     loadTVShow();
@@ -72,21 +73,27 @@ export const EpisodeDetails: FC = () => {
   };
 
   return (
-    <Container color={data.lightVibrant}>
-      <ReturnButton path={`/show/${showId}`} />
-      <Body>
-        <EpisodeDetail episode={episode} />
-        <SeasonsSelector
-          handleSeasonSelection={handleSeasonSelection}
-          seasons={seasons}
-          selectedSeason={selectedSeason}
-        />
-        {episodes
-          .filter((ep) => ep.season === selectedSeason)
-          .map((episode) => (
-            <EpisodePaper episode={episode} />
-          ))}
-      </Body>
-    </Container>
+    <>
+      {loading ? (
+        <EpisodeDetailsSkeleton />
+      ) : (
+        <Container color={data.lightVibrant}>
+          <ReturnButton path={`/show/${showId}`} />
+          <Body>
+            <EpisodeDetail episode={episode} />
+            <SeasonsSelector
+              handleSeasonSelection={handleSeasonSelection}
+              seasons={seasons}
+              selectedSeason={selectedSeason}
+            />
+            {episodes
+              .filter((ep) => ep.season === selectedSeason)
+              .map((episode) => (
+                <EpisodePaper episode={episode} />
+              ))}
+          </Body>
+        </Container>
+      )}
+    </>
   );
 };
