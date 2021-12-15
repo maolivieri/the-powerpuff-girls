@@ -1,13 +1,9 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  max-width: 1200px;
-  width: 80vw;
-  margin: 2rem auto;
-`;
+export const Container = styled.div``;
 
 export const BannerImage = styled.img`
-  width: 80vw;
+  width: 100%;
 `;
 export const ContentBody = styled.div`
   display: flex;
@@ -48,4 +44,11 @@ export const Button = styled.div`
   padding: 0.6rem 0.8rem;
   border-radius: 20px;
   background: rgba(15, 15, 15, 0.3);
+`;
+
+export const Line = styled.div`
+  display: block;
+  min-width: 100%;
+  border-bottom: solid 1px rgba(12, 12, 12, 0.6);
+  margin-top: 1rem;
 `;

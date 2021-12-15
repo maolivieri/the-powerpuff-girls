@@ -3,15 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../../shared/api";
 import { AppDispatch, RootState } from "../../shared/redux/store";
+import { usePalette } from "react-palette";
 import {
   loadTVShowEpisodes,
   loadTVShowSeasons,
 } from "../../shared/redux/tvShowSlice";
-import {
-  loadEpisodeDetails,
-  setEpisodeId,
-} from "../../shared/redux/episodeDetailsSlice";
+import { loadEpisodeDetails } from "../../shared/redux/episodeDetailsSlice";
 import { EpisodeDetail } from "../../components/EpisodeDetail";
+import EpisodePaper from "../../components/EpisodeDetail/EpisodePaper";
+
+import { Container, Body } from "./style";
 
 export const EpisodeDetails: FC = () => {
   const { episodes, seasons } = useSelector((state: RootState) => state.tvShow);
@@ -23,6 +24,7 @@ export const EpisodeDetails: FC = () => {
   const { showId } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
+  const { data } = usePalette(episode.image.original);
 
   useEffect(() => {
     const loadEpisode = async () => {
@@ -63,8 +65,13 @@ export const EpisodeDetails: FC = () => {
   }, [dispatch, navigate, showId]);
 
   return (
-    <div>
-      <EpisodeDetail episode={episode} />
-    </div>
+    <Container color={data.lightVibrant}>
+      <Body>
+        <EpisodeDetail episode={episode} />
+        {episodes.map((episode) => (
+          <EpisodePaper episode={episode} />
+        ))}
+      </Body>
+    </Container>
   );
 };

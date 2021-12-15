@@ -35,6 +35,7 @@ export const TVShow: FC = () => {
   const { details, episodes, seasons, casts } = useSelector(
     (state: RootState) => state.tvShow
   );
+  const { data } = usePalette(details.image.original);
 
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
     mode: "free",
@@ -69,8 +70,6 @@ export const TVShow: FC = () => {
     };
     loadTVShow();
   }, [showId, dispatch, navigate]);
-
-  const { data } = usePalette(details.image.original);
 
   const handleSeasonSelection = (season: number) => {
     setSelectedSeason(season);

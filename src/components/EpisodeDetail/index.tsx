@@ -14,6 +14,7 @@ import {
   ContentFooter,
   Summary,
   Button,
+  Line,
 } from "./style";
 
 interface EpisodeProps {
@@ -56,6 +57,7 @@ const EpisodeDetail: FC<EpisodeProps> = ({ episode }) => {
         <Summary>{ReactHtmlParser(summary)}</Summary>
         <Button>Watch Now</Button>
       </ContentFooter>
+      <Line />
     </Container>
   );
 };
