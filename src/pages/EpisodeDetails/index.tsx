@@ -78,7 +78,7 @@ export const EpisodeDetails: FC = () => {
         <EpisodeDetailsSkeleton />
       ) : (
         <Container color={data.lightVibrant}>
-          <ReturnButton path={`/show/${showId}`} />
+          <ReturnButton path={`/show/${showId}`} showPage={false} />
           <Body>
             <EpisodeDetail episode={episode} />
             <SeasonsSelector

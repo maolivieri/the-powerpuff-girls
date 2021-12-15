@@ -17,29 +17,18 @@ export const Container = styled.div<ContainerProps>`
   align-items: center;
   justify-content: space-between;
   padding: 0;
-  /* max-width: calc(100vw - 8vw); */
   min-height: 100vh;
   overflow-x: auto;
-  /* overflow-x: hidden; */
-
-  /* @media ${device.sm} {
-    padding-left: 4vw;
-    max-width: 100vw;
-  } */
 
   @media ${device.lg} {
-    /* max-width: 100vw; */
-    /* width: 100vw; */
     padding-left: 4vw;
     align-items: flex-start;
     flex-direction: row;
-    /* overflow-x: auto; */
   }
 `;
 
 export const ImageWrapper = styled.div<ImageProps>`
   max-width: calc(100vw - 8vw);
-  /* width: 100%; */
   width: calc(100vw - 8vw);
   max-height: 40vh;
   height: 40vh;
@@ -48,8 +37,6 @@ export const ImageWrapper = styled.div<ImageProps>`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 0%;
-  /* margin-left: 4vw; */
-  /* margin-right: 4vw; */
   margin-top: 4vw;
 
   @media ${device.lg} {
@@ -76,8 +63,6 @@ export const Content = styled.div`
   flex: 1;
   width: 100%;
   max-width: 100%;
-  /* margin-left: 3vw; */
-  /* overflow: auto; */
 
   @media ${device.lg} {
     overflow: auto;

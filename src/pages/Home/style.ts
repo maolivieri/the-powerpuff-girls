@@ -16,7 +16,8 @@ export const Container = styled.div`
 `;
 
 export const Highlight = styled.div`
-  margin: 0.2rem 2rem 2rem 2rem;
+  margin-top: 0.2rem;
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,6 +29,15 @@ export const Highlight = styled.div`
 export const Highlights = styled.div`
   display: flex;
   margin-bottom: 1rem;
+  justify-content: space-between;
+
+  @media ${device.md} {
+    width: 80vw;
+  }
+
+  @media ${device.lg} {
+    width: 60vw;
+  }
 `;
 
 export const HighlightTitle = styled.h3`

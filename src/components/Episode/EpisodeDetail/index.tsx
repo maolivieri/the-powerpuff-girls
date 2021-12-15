@@ -1,6 +1,5 @@
 import { FC } from "react";
 import HTMLEllipsis from "react-lines-ellipsis/lib/html";
-import ReactHtmlParser from "react-html-parser";
 
 import {
   Container,
@@ -66,7 +65,6 @@ const EpisodeDetail: FC<EpisodeProps> = ({ episode }) => {
             ellipsis='...'
             basedOn='letters'
           />
-          {/* {ReactHtmlParser(summary)} */}
         </Summary>
         <Button>Watch Now</Button>
       </ContentFooter>

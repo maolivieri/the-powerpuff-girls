@@ -18,3 +18,13 @@ export const Text = styled.div`
     margin-right: 3vw;
   }
 `;
+
+export const ReadMore = styled.div`
+  font-weight: 600;
+  cursor: pointer;
+  text-align: right;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;

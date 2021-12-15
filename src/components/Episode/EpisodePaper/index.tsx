@@ -1,10 +1,10 @@
 import { FC } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import HTMLEllipsis from "react-lines-ellipsis/lib/html";
 import { setEpisodeId } from "../../../shared/redux/episodeDetailsSlice";
 import { AppDispatch } from "../../../shared/redux/store";
 import { PaperImage } from "../PaperImage";
-import ReactHtmlParser from "react-html-parser";
 import {
   Container,
   Number,
@@ -15,7 +15,6 @@ import {
   Head,
 } from "./style";
 
-import HTMLEllipsis from "react-lines-ellipsis/lib/html";
 interface EpisodeProps {
   episode: {
     id: number;

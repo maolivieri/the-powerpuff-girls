@@ -4,7 +4,16 @@ import { device } from "../../shared/breakpoints";
 import { FiArrowLeft } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
-const Container = styled.div`
+interface ReturnButtonProps {
+  path: string;
+  showPage: boolean;
+}
+
+interface PlacementProp {
+  showPage: boolean;
+}
+
+const Container = styled.div<PlacementProp>`
   position: absolute;
 
   width: 1.5rem;
@@ -20,14 +29,18 @@ const Container = styled.div`
   z-index: 9999;
   cursor: pointer;
 
-  top: 3rem;
-  left: calc(4vw + 0.5rem);
+  top: ${({ showPage }) => (showPage ? "3rem" : "3rem")};
+  left: ${({ showPage }) =>
+    showPage ? "calc(4vw + 0.8rem)" : "calc(4vw + 0.5rem)"};
 
   @media ${device.md} {
-    left: calc(4vw + 3.5rem);
+    top: ${({ showPage }) => (showPage ? "3.5rem" : "3rem")};
+    left: ${({ showPage }) =>
+      showPage ? "calc(4vw + 0.5rem)" : "calc(4vw + 3.5rem)"};
   }
   @media ${device.lg} {
-    left: calc(4vw);
+    top: ${({ showPage }) => (showPage ? "3.7rem" : "3rem")};
+    left: ${({ showPage }) => (showPage ? "calc(4vw + 1rem)" : "calc(4vw)")};
   }
 `;
 
@@ -37,14 +50,10 @@ const Icon = styled(FiArrowLeft)`
   font-size: 1.1rem;
 `;
 
-interface ReturnButtonProps {
-  path: string;
-}
-
-const ReturnButton: FC<ReturnButtonProps> = ({ path }) => {
+const ReturnButton: FC<ReturnButtonProps> = ({ path, showPage }) => {
   const navigate = useNavigate();
   return (
-    <Container onClick={() => navigate(path)}>
+    <Container showPage={showPage} onClick={() => navigate(path)}>
       <Icon />
     </Container>
   );

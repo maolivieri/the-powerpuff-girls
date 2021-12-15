@@ -34,6 +34,7 @@ import { EpisodeCard } from "../../components/TVShow/EpisodeCard";
 import ShowType from "../../components/TVShow/ShowType";
 import Genres from "../../components/TVShow/Genres";
 import Casts from "../../components/TVShow/Casts";
+import ReturnButton from "../../components/ReturnButton";
 
 export const TVShow: FC = () => {
   const [loading, setLoading] = useState(true);
@@ -99,6 +100,7 @@ export const TVShow: FC = () => {
         <Loading />
       ) : (
         <Container color={data.lightVibrant}>
+          <ReturnButton path='/' showPage={true} />
           <ImageWrapper url={details.image.original}>
             <ShowImage src={details.image.original} alt='show banner' />
           </ImageWrapper>

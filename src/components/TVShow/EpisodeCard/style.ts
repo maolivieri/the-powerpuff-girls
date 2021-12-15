@@ -5,7 +5,6 @@ interface ContainerProps {
 }
 
 export const Background = styled.div<ContainerProps>`
-  /* position: relative; */
   position: relative;
   width: calc(6rem * 1.8);
   height: 6rem;
@@ -14,7 +13,6 @@ export const Background = styled.div<ContainerProps>`
   background-position: center center;
   background-size: cover;
   border-radius: 20px;
-  /* margin-right: 1rem; */
   overflow: hidden;
   display: flex;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -52,7 +50,6 @@ export const Duration = styled.p`
 export const Hover = styled.div`
   opacity: 0;
   position: absolute;
-  /* background: red; */
   width: 100%;
   height: 100%;
   z-index: 100;
@@ -68,7 +65,6 @@ export const Hover = styled.div`
 `;
 
 export const Blur = styled.div`
-  /* background: rgba(0, 0, 43, 0.3); */
   position: absolute;
   width: 100%;
   height: 100%;
@@ -88,12 +84,6 @@ export const SeeMoreButton = styled.div`
   border-radius: 25px;
   overflow: hidden;
   background: rgba(15, 15, 15, 0.5);
-  /* -webkit-filter: blur(3px);
-  -moz-filter: blur(3px);
-  -o-filter: blur(3px);
-  -ms-filter: blur(3px);
-  filter: blur(3px);
-  backdrop-filter: blur(3px); */
   z-index: 103;
   transition: 0.2s;
 `;

@@ -21,11 +21,6 @@ export const EpisodeInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
-  /* @media ${device.md} {
-    flex-direction: row;
-    align-items: center;
-  } */
 `;
 export const EpisodeDates = styled.div`
   display: flex;
