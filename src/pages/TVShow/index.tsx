@@ -16,7 +16,16 @@ import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 
 import { Loading } from "../../components/Loading";
-import { Container, Content, ImageWrapper, Title, Footer } from "./style";
+import {
+  Container,
+  Content,
+  ImageWrapper,
+  Title,
+  Footer,
+  ShowImage,
+  NetworkAndSchedule,
+  SliderWrapper,
+} from "./style";
 import { Schedule } from "../../components/TVShow/Schedule";
 import { Network } from "../../components/TVShow/Network";
 import { Summary } from "../../components/TVShow/Summary";
@@ -90,36 +99,29 @@ export const TVShow: FC = () => {
         <Loading />
       ) : (
         <Container color={data.lightVibrant}>
-          <ImageWrapper>
-            <img
-              style={{ height: "100%" }}
-              src={details.image.original}
-              alt='show banner'
-            />
+          <ImageWrapper url={details.image.original}>
+            <ShowImage src={details.image.original} alt='show banner' />
           </ImageWrapper>
           <Content>
             <Title>{details.name}</Title>
-            <div style={{ display: "flex" }}>
+            <NetworkAndSchedule style={{ display: "flex" }}>
               <Network name={details.network?.name} />
               <Schedule schedule={details.schedule} />
-            </div>
+            </NetworkAndSchedule>
             <Summary summary={details.summary} />
             <Seasons
               seasons={seasons}
               selectedSeason={selectedSeason}
               handleSeasonSelection={handleSeasonSelection}
             />
-            <div
-              style={{ maxWidth: "100%" }}
-              ref={sliderRef}
-              className='keen-slider'
-            >
+            <SliderWrapper ref={sliderRef} className='keen-slider'>
               {episodes
                 .filter((ep) => ep.season === selectedSeason)
                 .map((episode) => (
                   <div
                     className='keen-slider__slide'
                     style={{ minWidth: "calc(6rem * 1.8)" }}
+                    key={String(episode.id)}
                   >
                     <EpisodeCard
                       id={episode.id}
@@ -131,7 +133,7 @@ export const TVShow: FC = () => {
                     />
                   </div>
                 ))}
-            </div>
+            </SliderWrapper>
             <Footer>
               <ShowType value={details.type} />
               <Genres genres={details.genres} />

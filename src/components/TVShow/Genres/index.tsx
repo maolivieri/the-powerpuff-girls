@@ -11,9 +11,12 @@ const Container = styled.div`
 `;
 const Title = styled.p`
   font-weight: 700;
+  margin-right: 0.2rem;
+  text-overflow: ellipsis;
 `;
 const Genre = styled.p`
   white-space: pre-wrap;
+  text-overflow: ellipsis;
 `;
 
 const Genres: FC<GenresProps> = ({ genres }) => {

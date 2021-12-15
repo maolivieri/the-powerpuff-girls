@@ -26,12 +26,14 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0.9rem 0.8rem;
+  padding: 0.8rem 0.8rem;
   color: #ffffff;
   z-index: 10;
 `;
 
-export const Number = styled.p``;
+export const Number = styled.p`
+  font-size: 1rem;
+`;
 
 export const Name = styled.p`
   font-weight: 700;
@@ -39,9 +41,13 @@ export const Name = styled.p`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 0.9rem;
+  padding-right: 0.8rem;
 `;
 
-export const Duration = styled.p``;
+export const Duration = styled.p`
+  font-size: 0.9rem;
+`;
 
 export const Hover = styled.div`
   opacity: 0;

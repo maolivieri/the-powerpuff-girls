@@ -1,11 +1,17 @@
 import styled, { css } from "styled-components";
+import { device } from "../../../shared/breakpoints";
 
 interface SeasonProps {
   active: boolean;
 }
 
 export const Container = styled.div`
+  padding: 1.5rem 4vw;
   display: flex;
+
+  @media ${device.lg} {
+    padding: 2rem 0 2rem 0;
+  }
 `;
 
 export const Season = styled.div<SeasonProps>`

@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Container, Title, Name } from "./style";
 
 interface NetworkProps {
-  name: string 
+  name: string;
 }
 
 const Network: FC<NetworkProps> = ({ name }) => {

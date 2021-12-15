@@ -11,9 +11,11 @@ const Container = styled.div`
 `;
 const Title = styled.p`
   font-weight: 700;
+  margin-right: 0.2rem;
 `;
 const Description = styled.p`
   white-space: pre-wrap;
+  text-overflow: ellipsis;
 `;
 
 const ShowType: FC<ShowTypeProps> = ({ value }) => {
