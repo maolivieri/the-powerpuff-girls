@@ -13,6 +13,7 @@ import { EpisodeDetail } from "../../components/EpisodeDetail";
 import EpisodePaper from "../../components/EpisodeDetail/EpisodePaper";
 
 import { Container, Body } from "./style";
+import SeasonsSelector from "../../components/EpisodeDetail/SeasonsSelector";
 
 export const EpisodeDetails: FC = () => {
   const { episodes, seasons } = useSelector((state: RootState) => state.tvShow);
@@ -29,8 +30,9 @@ export const EpisodeDetails: FC = () => {
   useEffect(() => {
     const loadEpisode = async () => {
       try {
-        const { data: EpisodeDetails } = await api.get(`episodes/${episodeId}`);
-        dispatch(loadEpisodeDetails(EpisodeDetails));
+        const { data: episodeDetails } = await api.get(`episodes/${episodeId}`);
+        dispatch(loadEpisodeDetails(episodeDetails));
+        setSelectedSeason(episodeDetails.season);
       } catch (error) {
         navigate(`/show/${showId}`);
       } finally {
@@ -64,13 +66,24 @@ export const EpisodeDetails: FC = () => {
     loadTVShow();
   }, [dispatch, navigate, showId]);
 
+  const handleSeasonSelection = (season: number) => {
+    setSelectedSeason(season);
+  };
+
   return (
     <Container color={data.lightVibrant}>
       <Body>
         <EpisodeDetail episode={episode} />
-        {episodes.map((episode) => (
-          <EpisodePaper episode={episode} />
-        ))}
+        <SeasonsSelector
+          handleSeasonSelection={handleSeasonSelection}
+          seasons={seasons}
+          selectedSeason={selectedSeason}
+        />
+        {episodes
+          .filter((ep) => ep.season === selectedSeason)
+          .map((episode) => (
+            <EpisodePaper episode={episode} />
+          ))}
       </Body>
     </Container>
   );

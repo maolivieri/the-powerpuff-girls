@@ -41,7 +41,7 @@ const EpisodePaper: FC<EpisodeProps> = ({ episode }) => {
       dispatch(setEpisodeId(episodeId));
     } catch (error) {
     } finally {
-      navigate(`episode`);
+      navigate(``);
     }
   };
 
