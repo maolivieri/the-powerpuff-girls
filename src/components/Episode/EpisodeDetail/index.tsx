@@ -49,8 +49,12 @@ const EpisodeDetail: FC<EpisodeProps> = ({ episode }) => {
           <Name>{name}</Name>
         </EpisodeInfo>
         <EpisodeDates>
-          <Duration>{runtime}</Duration>
-          <Airdate>{airdate}</Airdate>
+          <Duration>
+            Episode Time: <span className='bold'>{runtime}min</span>
+          </Duration>
+          <Airdate>
+            Airdate: <span>{airdate}</span>
+          </Airdate>
         </EpisodeDates>
       </ContentBody>
       <ContentFooter>
