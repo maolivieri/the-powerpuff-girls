@@ -17,7 +17,7 @@ export const Background = styled.div<ContainerProps>`
   /* margin-right: 1rem; */
   overflow: hidden;
   display: flex;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
 `;
 
 export const Hover = styled.div`

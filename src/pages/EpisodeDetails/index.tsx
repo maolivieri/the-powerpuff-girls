@@ -14,6 +14,7 @@ import EpisodePaper from "../../components/Episode/EpisodePaper";
 
 import { Container, Body } from "./style";
 import SeasonsSelector from "../../components/Episode/SeasonsSelector";
+import ReturnButton from "../../components/ReturnButton";
 
 export const EpisodeDetails: FC = () => {
   const { episodes, seasons } = useSelector((state: RootState) => state.tvShow);
@@ -72,6 +73,7 @@ export const EpisodeDetails: FC = () => {
 
   return (
     <Container color={data.lightVibrant}>
+      <ReturnButton path={`/show/${showId}`} />
       <Body>
         <EpisodeDetail episode={episode} />
         <SeasonsSelector

@@ -1,4 +1,5 @@
 import { FC } from "react";
+import HTMLEllipsis from "react-lines-ellipsis/lib/html";
 import ReactHtmlParser from "react-html-parser";
 
 import {
@@ -38,7 +39,7 @@ const EpisodeDetail: FC<EpisodeProps> = ({ episode }) => {
   const { name, summary, season, number, airdate, runtime, image } = episode;
 
   const seasonNumber = season.toString().length === 1 ? `0${season}` : season;
-  const episodeNumber = number.toString().length === 1 ? `0${number}` : season;
+  const episodeNumber = number.toString().length === 1 ? `0${number}` : number;
 
   return (
     <Container>
@@ -58,7 +59,15 @@ const EpisodeDetail: FC<EpisodeProps> = ({ episode }) => {
         </EpisodeDates>
       </ContentBody>
       <ContentFooter>
-        <Summary>{ReactHtmlParser(summary)}</Summary>
+        <Summary>
+          <HTMLEllipsis
+            unsafeHTML={summary}
+            maxLine='3'
+            ellipsis='...'
+            basedOn='letters'
+          />
+          {/* {ReactHtmlParser(summary)} */}
+        </Summary>
         <Button>Watch Now</Button>
       </ContentFooter>
       <Line />

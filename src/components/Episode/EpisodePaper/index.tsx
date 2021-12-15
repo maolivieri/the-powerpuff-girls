@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { setEpisodeId } from "../../../shared/redux/episodeDetailsSlice";
 import { AppDispatch } from "../../../shared/redux/store";
 import { PaperImage } from "../PaperImage";
+import ReactHtmlParser from "react-html-parser";
 import {
   Container,
   Number,
@@ -14,6 +15,7 @@ import {
   Head,
 } from "./style";
 
+import HTMLEllipsis from "react-lines-ellipsis/lib/html";
 interface EpisodeProps {
   episode: {
     id: number;
@@ -45,6 +47,8 @@ const EpisodePaper: FC<EpisodeProps> = ({ episode }) => {
     }
   };
 
+  const episodeNumber = number.toString().length === 1 ? `0${number}` : number;
+
   return (
     <Container>
       <PaperImage
@@ -54,11 +58,19 @@ const EpisodePaper: FC<EpisodeProps> = ({ episode }) => {
       />
       <Details>
         <Head>
-          <Number>{number}</Number>
+          <Number>{episodeNumber}</Number>
           <Name>{name}</Name>
-          <Runtime>{runtime}</Runtime>
+          <Runtime>{runtime}min</Runtime>
         </Head>
-        <Summary>{summary}</Summary>
+        <Summary>
+          <HTMLEllipsis
+            unsafeHTML={summary}
+            maxLine='2'
+            ellipsis='...'
+            trimRight
+            basedOn='words'
+          />
+        </Summary>
       </Details>
     </Container>
   );
