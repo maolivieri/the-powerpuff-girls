@@ -69,7 +69,7 @@ const Home: FC = () => {
         <SearchBox
           onChange={(event) => setSearch(event.target.value)}
           type='text'
-          placeholder='Search your favourite show..'
+          placeholder='Search for your favourite show...'
           name='search'
           value={search}
         />

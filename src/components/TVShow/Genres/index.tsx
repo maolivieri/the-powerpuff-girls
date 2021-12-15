@@ -10,11 +10,13 @@ const Container = styled.div`
   align-items: center;
 `;
 const Title = styled.p`
+  font-size: 0.8rem;
   font-weight: 700;
   margin-right: 0.2rem;
   text-overflow: ellipsis;
 `;
 const Genre = styled.p`
+  font-size: 0.8rem;
   white-space: pre-wrap;
   text-overflow: ellipsis;
 `;

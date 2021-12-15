@@ -6,6 +6,11 @@ export const Container = styled.div``;
 export const BannerImage = styled.img`
   width: 100%;
 `;
+
+export const BannerImagePlaceholder = styled.div`
+  width: 100%;
+`;
+
 export const ContentBody = styled.div`
   display: flex;
   flex-direction: column;

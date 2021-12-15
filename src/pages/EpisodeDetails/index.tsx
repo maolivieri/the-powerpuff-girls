@@ -27,7 +27,7 @@ export const EpisodeDetails: FC = () => {
   const { showId } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
-  const { data } = usePalette(episode.image.original);
+  const { data } = usePalette(episode.image?.original);
 
   useEffect(() => {
     const loadEpisode = async () => {

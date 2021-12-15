@@ -18,11 +18,13 @@ const Container = styled.div`
 `;
 const Title = styled.p`
   font-weight: 700;
+  font-size: 0.8rem;
   margin-right: 0.2rem;
   justify-content: flex-start;
 `;
 
 const CastWrapper = styled.div`
+  font-size: 0.8rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;

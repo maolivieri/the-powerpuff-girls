@@ -8,6 +8,7 @@ export const Background = styled.div<ContainerProps>`
   position: relative;
   width: calc(6rem * 1.8);
   height: 6rem;
+  background-color: rgba(200, 200, 200);
   background-image: ${({ image }) => `url(${image})`};
   background-repeat: no-repeat;
   background-position: center center;

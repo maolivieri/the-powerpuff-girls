@@ -39,7 +39,7 @@ const Container = styled.div<PlacementProp>`
       showPage ? "calc(4vw + 0.5rem)" : "calc(4vw + 3.5rem)"};
   }
   @media ${device.lg} {
-    top: ${({ showPage }) => (showPage ? "3.7rem" : "3rem")};
+    top: ${({ showPage }) => (showPage ? "4.8rem" : "3rem")};
     left: ${({ showPage }) => (showPage ? "calc(4vw + 1rem)" : "calc(4vw)")};
   }
 `;

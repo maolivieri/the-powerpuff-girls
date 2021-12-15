@@ -15,6 +15,7 @@ import {
   Summary,
   Button,
   Line,
+  BannerImagePlaceholder,
 } from "./style";
 
 interface EpisodeProps {
@@ -42,7 +43,11 @@ const EpisodeDetail: FC<EpisodeProps> = ({ episode }) => {
 
   return (
     <Container>
-      <BannerImage src={image?.original} alt='episode banner' />
+      {!!image?.original ? (
+        <BannerImage src={image?.original} alt='episode banner' />
+      ) : (
+        <BannerImagePlaceholder />
+      )}
       <ContentBody>
         <EpisodeInfo>
           <SeasonAndEpisode>{`Season ${seasonNumber} | E${episodeNumber}`}</SeasonAndEpisode>

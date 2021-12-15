@@ -4,10 +4,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-html {
-  background: rgba(240, 240, 240);
-}
-
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   html {

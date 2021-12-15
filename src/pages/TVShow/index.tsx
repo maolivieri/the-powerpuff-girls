@@ -51,7 +51,7 @@ export const TVShow: FC = () => {
     mode: "free",
     slides: {
       perView: "auto",
-      spacing: 14,
+      spacing: 2,
     },
   });
 
@@ -75,7 +75,7 @@ export const TVShow: FC = () => {
       } finally {
         setTimeout(() => {
           setLoading(false);
-        }, 1000);
+        }, 500);
       }
     };
     loadTVShow();
@@ -122,7 +122,7 @@ export const TVShow: FC = () => {
                 .map((episode) => (
                   <div
                     className='keen-slider__slide'
-                    style={{ minWidth: "calc(6rem * 1.8)" }}
+                    style={{ minWidth: "calc(6.6rem * 1.8)" }}
                     key={String(episode.id)}
                   >
                     <EpisodeCard
