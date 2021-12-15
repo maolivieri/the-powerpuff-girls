@@ -9,11 +9,11 @@ import {
   loadTVShowSeasons,
 } from "../../shared/redux/tvShowSlice";
 import { loadEpisodeDetails } from "../../shared/redux/episodeDetailsSlice";
-import { EpisodeDetail } from "../../components/EpisodeDetail";
-import EpisodePaper from "../../components/EpisodeDetail/EpisodePaper";
+import { EpisodeDetail } from "../../components/Episode/EpisodeDetail";
+import EpisodePaper from "../../components/Episode/EpisodePaper";
 
 import { Container, Body } from "./style";
-import SeasonsSelector from "../../components/EpisodeDetail/SeasonsSelector";
+import SeasonsSelector from "../../components/Episode/SeasonsSelector";
 
 export const EpisodeDetails: FC = () => {
   const { episodes, seasons } = useSelector((state: RootState) => state.tvShow);

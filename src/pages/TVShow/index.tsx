@@ -21,7 +21,7 @@ import { Schedule } from "../../components/TVShow/Schedule";
 import { Network } from "../../components/TVShow/Network";
 import { Summary } from "../../components/TVShow/Summary";
 import { Seasons } from "../../components/TVShow/Seasons";
-import { EpisodeCard } from "../../components/EpisodeCard";
+import { EpisodeCard } from "../../components/TVShow/EpisodeCard";
 import ShowType from "../../components/TVShow/ShowType";
 import Genres from "../../components/TVShow/Genres";
 import Casts from "../../components/TVShow/Casts";
